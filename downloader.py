@@ -71,13 +71,14 @@ def makeBreakPoint(breakPoint, mode):
         elif mode == 'w':
             f.write(breakPoint)
             f.close()
+
 if __name__ == "__main__":
     html = open('source.html', 'r')
     soup = BS(html, 'html.parser', from_encoding='utf-8')
     targets = soup.find('div', id='target').find_all('a')
 
     # 可以自行设置断点，如果为空则从配置中读取
-    breakPoint = "fancytextbox_demo"
+    breakPoint = ""
     if breakPoint == "":
         breakPoint = makeBreakPoint(breakPoint, 'r')
     if breakPoint:
